@@ -1,0 +1,8 @@
+
+*.o 
+*.a
+*.so
+a.out
+*ServerLog
+.vscode
+.DS_Store
