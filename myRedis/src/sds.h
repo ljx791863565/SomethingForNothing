@@ -89,5 +89,27 @@ void sdsfree(const sds s);
 // 在不释放s的字符串空间的情况下 将s保存的内容清空 O(1)
 void sdsclear(sds s);
 
+// 将sds长度扩大到newsize大小，未使用的空间用'\0'填充 O(N)
+sds sdsgrowzero(sds s, size_t newsize);
 
+// 追加长度为len的内容到s末尾 O(N)
+sds sdscatlen(sds s, const void *t, size_t len);
+
+// 追加字符串t到s末尾 O(N)
+sds sdscat(sds s, const char *t);
+
+// 将字符串t的前len个字符复制到s中（覆盖原s内容) O(N)
+sds sdscpylen(sds s, const char *t, size_t len);
+
+// 将字符串t内容覆盖到s o(N)
+sds sdscpy(sds s, const char *t);
+
+// 将s字符串中所有字符转换为小写 O(N)
+void sdstolower(sds s)；
+
+// 将s字符串中所有字符转换为大写 O(N)
+void sdstoupper(sds s)；
+
+// 将s两端修剪，清除cset中所有的字符 O(M*N) M为cset长度 N为sds长度 
+sds sdstrim(sds s, const char cset);
 #endif 

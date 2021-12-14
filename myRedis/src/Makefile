@@ -8,7 +8,7 @@ OPTIMIZATION ?= -O2
 # Default settings
 # -pedantic以ANSI/ISO C标准列出的所有警告
 # 当GCC在编译不符合ANSI/ISO C语言标准的源代码时，如果在编译指令中加上了-pedantic选项，那么源程序中使用了扩展语法的地方将产生相应的警告信息。
-STD=-std=c99 -pedantic
+STD=-std=c99 -pedantic -Wunused-function
 WARN=-Wall
 OPT=$(OPTIMIZATION)
 
