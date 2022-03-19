@@ -6,3 +6,5 @@ a.out
 *ServerLog
 .vscode
 .DS_Store
+Test/
+*build/

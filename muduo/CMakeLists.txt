@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 2.6)
+
+PROJECT (muduo C CXX)
+
+MESSAGE(STATUS "This is BINARY dir " ${PROJECT_BINARY_DIR})
+MESSAGE(STATUS "This is SOURCE dir " ${PROJECT_SOURCE_DIR})
+
+SET(base_src Date.cc)
+SET(CXX_FLAGS -g
+    -std=c++11)
+
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR})
+set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
+
+string(REPLACE ";" " " CMAKE_CXX_FLAGS "${CXX_FLAGS}")
+message(STATUS "CXX_FLAGS = " ${CMAKE_CXX_FLAGS} " " ${CMAKE_CXX_FLAGS_${BUILD_TYPE}})
+
+ADD_LIBRARY(muduo_base ${base_src})
+
+
