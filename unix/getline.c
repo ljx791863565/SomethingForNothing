@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+// getline的工业级实现，可以完全取得一行 
+
 #define LINE 64
 ssize_t mygetline(char **lineptr, size_t *n, FILE *stream)
 {
@@ -36,7 +39,6 @@ ssize_t mygetline(char **lineptr, size_t *n, FILE *stream)
 	*(*lineptr + count++) = '\n';
 	*(*lineptr + count) = '\0';
 	return count;
-
 }
 void mygetline_free(char *lineptr)
 {
@@ -61,13 +63,12 @@ int main(int argc, char *argv[])
 	
 	char *linebuf = NULL;
 	size_t linelen = 0;
-
+	int num = 1;
 	while (1) {
 		if (mygetline(&linebuf, &linelen, fp) < 0) {
 			break;
 		}
-		fprintf(stdout, "%lu\n", strlen(linebuf));
-		fprintf(stdout, "%lu\n", linelen);
+		fprintf(stdout, "line %d: [%lu][%lu][%s]\n", num++, strlen(linebuf), linelen, linebuf);
 	}
 
 	mygetline_free(linebuf);

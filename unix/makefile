@@ -1,5 +1,4 @@
-main:
-	gcc   
-
-rm:
-	rm a.out
+CFLAGS+=-D_FILE_OFFSET_BITS=64 -D_GUN_SOURCE -Wall
+CC=gcc
+$@: $@.c
+	${CC} -o $@ $@.c ${CFLAGS}

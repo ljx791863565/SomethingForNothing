@@ -1,10 +1,5 @@
-
-*.o 
-*.a
-*.so
-a.out
-*ServerLog
-.vscode
-.DS_Store
-Test/
-*build/
+.clang-format
+gtest/
+muduo/*
+*.txt
+unix/a.out

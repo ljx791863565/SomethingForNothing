@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #define BUFSIZE 1024
+
 int main(int argc, char *argv[])
 {
     if (argc != 3) {
@@ -8,6 +10,7 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
+    char buf[BUFSIZE] = {0};
     FILE *fps = fopen(argv[1], "r");
     if (fps == NULL) {
         perror("fopen()");
@@ -21,28 +24,9 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
-    // // <use fgetc>
-    // while (1) {
-    //     int ch = fgetc(fps);
-    //     if (ch == EOF) {
-    //         break;
-    //     }
-    //     fputc(ch, fpd);
-    // }
-
-    // // <use fgets> 
-    // char buf[BUFSIZE] = {0};
-    // while (fgets(buf, BUFSIZE, fps) != NULL) {
-    //     fputs(buf, fpd);
-    // }
-
-    // <use fread>
-    char buf[BUFSIZE] = {0};
-    int n = 0;
-    while ((n = fread(buf, 1, BUFSIZE, fps)) >  0) {
-        fwrite(buf, 1, n, fpd);
+    while (fgets(buf, BUFSIZE, fps) != NULL) {
+        fputs(buf, fpd);
     }
-
 
     fclose(fpd);
     fclose(fps);

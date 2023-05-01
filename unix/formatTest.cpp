@@ -29,6 +29,14 @@ namespace DDD
 
 }
 
+
+{
+
+
+    打字测试
+}
+
+
 int main()
 {
     printf("this is the test format file.\n");
