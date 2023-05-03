@@ -64,8 +64,7 @@ int main(int argc, char *argv[])
     line++;
     printf("into line %d, len = %ld\n", line, offset);
     char del_buf[8192] = {0};
-    strcpy(del_buf, lineptr);
-    size_t del_len = offset;
+    size_t del_len = sprintf(del_buf, "%s", lineptr);
     while ((offset = getline(&lineptr, &lineLen, Rfp)) > 0) {
         fputs(lineptr, Wfp);
     }
